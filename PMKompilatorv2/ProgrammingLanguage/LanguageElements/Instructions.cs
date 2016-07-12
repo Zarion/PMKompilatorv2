@@ -1,4 +1,5 @@
-﻿using PMKompilatorv2.LanguageElements.Instructions;
+﻿using PMKompilatorv2.LanguageAnalyzer;
+using PMKompilatorv2.LanguageElements.Instructions;
 using PMKompilatorv2.ProgrammingLanguage.LanguageElements.InstructionsOfLanguage;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,9 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
 {
     public class Instructions
     {
+        /*Wszystkie instrukcje dostępne w języku.
+          Każda instrukcja, aby była widoczna dla kompilatora, musi zostać
+          zdefiniowana i dodana do listy instrukcji*/
         public IInstructions Let { get { return new InstructionLet(); } }
         public IInstructions If { get { return new InstructionIf(); } }
         public IInstructions Input { get { return new InstructionInput(); } }
@@ -29,6 +33,8 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
             ListOfInstructions.Add(Nul);
         }
 
+        /*Funkcja sprawdza czy kolejny symbol jest rozpoczęciem nowej instruckji
+          oraz wywołuje odpowiednią funckje weryfikującą dla instukcji*/
         public int VerifyInstruction()
         {
             Analyzer.ReadCode.ReadNewSymbol();
@@ -41,7 +47,7 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
             {
                 foreach (IInstructions instruction in Language.Instructions.ListOfInstructions)
                 {
-                    if (Analyzer.ReadCode.CurrentSymbol == instruction.Text) return instruction.Verify();
+                    if (Analyzer.ReadCode.CurrentSymbol == instruction.Text) instruction.Verify();
                 }
             }
             return 3;

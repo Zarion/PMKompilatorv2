@@ -15,20 +15,8 @@ namespace PMKompilatorv2
         public static Instructions Instructions { get { return new Instructions(); } }
         public static Expressions Expressions { get { return new Expressions(); } }
         public static CompilationErrors Errors { get { return new CompilationErrors(); } }
-        public static string Variable
-        {
-            get
-            {
-                return "^[a-z]$";
-            }
-        }
-        public static string Number
-        {
-            get
-            {
-                return "^[0-9]+(.[0-9]+)?$";
-            }
-        }
+        public static Variable Variable { get { return new Variable(); } }
+        public static Number Number { get { return new Number(); } }
 
         private Language()
         {

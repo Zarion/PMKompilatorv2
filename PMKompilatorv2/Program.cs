@@ -1,7 +1,10 @@
 ﻿using Autofac;
+using PMKompilatorv2.LanguageAnalyzer;
+using PMKompilatorv2.LanguageAnalyzer.Exceptions;
 using PMKompilatorv2.LanguageElements.ExpressionsOfLanguage;
 using PMKompilatorv2.LanguageElements.Instructions;
 using PMKompilatorv2.LanguageElements.InstructionsOfLanguage;
+using PMKompilatorv2.ProgrammingLanguage.LanguageElements;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,25 +17,8 @@ namespace PMKompilatorv2
 {
     class Program
     {
-        //public static IContainer DependencyContainer { get; set; }
-
         static void Main(string[] args)
         {
-            /*var builder = new ContainerBuilder();
-
-            ReadCode readCode = new ReadCode("C:/Users/drynca/Desktop/TestowyProgram.txt");
-            Analyzer.test();
-
-            builder.RegisterType<ReadCode>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<InstructionIf>().As<IInstructions>().InstancePerLifetimeScope();
-            DependencyContainer = builder.Build();
-
-            using( var scope = DependencyContainer.BeginLifetimeScope())
-            {
-                
-                
-            }*/
-            //Builder.Res
 
             /*foreach(IExpression expression in Language.Expressions.ListOfExpressions)
             {
@@ -52,9 +38,21 @@ namespace PMKompilatorv2
                 Console.WriteLine("");
                 Analyzer.ReadCode.ReadNewSymbol();
             }*/
-            Analyzer.Start();
+            try
+            {
+                Analyzer.Start();
+                Console.WriteLine("Kompuilacja zakończona sukcesem");
+            }
+            catch(ExceptionBase e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
             Console.ReadKey();
+
         }
+
+        
     }
 }

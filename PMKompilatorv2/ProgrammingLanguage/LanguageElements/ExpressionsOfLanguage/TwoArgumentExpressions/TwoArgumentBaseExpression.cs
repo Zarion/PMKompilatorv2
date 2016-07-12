@@ -17,18 +17,10 @@ namespace PMKompilatorv2.LanguageElements.ExpressionsOfLanguage.TwoArgumentExpre
             }
         }
 
-        public int Verify()
+        public void Verify()
         {
-            int response = 2;
-            response = Language.Expressions.OneArgumentExpresion.Verify();
-            if( response != -1)
-            {
-                return response;
-            }
-            else
-            {
-                return Language.Expressions.OneArgumentExpresion.Verify();
-            }
+            Language.Expressions.Verify();
+            Language.Expressions.Verify();
         }
     }
 }

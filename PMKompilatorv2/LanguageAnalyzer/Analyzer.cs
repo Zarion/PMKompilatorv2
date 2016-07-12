@@ -1,16 +1,18 @@
-﻿using PMKompilatorv2.LanguageElements.InstructionsOfLanguage;
+﻿using PMKompilatorv2.LanguageAnalyzer;
+using PMKompilatorv2.LanguageElements.InstructionsOfLanguage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PMKompilatorv2
+namespace PMKompilatorv2.LanguageAnalyzer
 {
     public class Analyzer
     {
         public static ReadCode ReadCode = new ReadCode("C:/Users/drynca/Desktop/TestowyProgram.txt");
         public static List<string> InitializedVariables = new List<string>();
+        public static CompilationExceptions CompilationExceptions { get { return new CompilationExceptions(); } }
 
         public static void Start()
         {
@@ -18,7 +20,7 @@ namespace PMKompilatorv2
             while( !Analyzer.ReadCode.EndOfSymbols )
             {
                 response = Language.Instructions.VerifyInstruction();
-                if (response != -1) break ;
+                if (response != -1) break;
             }
 
             Console.WriteLine(Language.Errors.ErrorText(response));

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PMKompilatorv2.LanguageAnalyzer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,16 +17,11 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
             }
         }
 
-        public int Verify()
+        public void Verify()
         {
-            int response = 7;
-            Analyzer.ReadCode.ReadNewSymbol();
-            if (Analyzer.ReadCode.IsSymbolIncorrect() == true) return 0;
-            if (Analyzer.ReadCode.IsSymbolAnOneArgumentExpresion() == true) response = Language.Expressions.OneArgumentExpresion.Verify();
-            if (Analyzer.ReadCode.IsSymbolAnTwoArgumentExpresion() == true) response = Language.Expressions.TwoArgumentExpresion.Verify();
-            if (response == -1) response = Language.Instructions.VerifyInstruction();
-            if (response == -1) response = Language.Instructions.VerifyInstruction();
-            return response;
+            Language.Expressions.Verify();
+            Language.Instructions.VerifyInstruction();
+            Language.Instructions.VerifyInstruction();
         }
 
     }

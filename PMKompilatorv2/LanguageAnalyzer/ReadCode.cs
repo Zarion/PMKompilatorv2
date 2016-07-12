@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PMKompilatorv2
+namespace PMKompilatorv2.LanguageAnalyzer
 {
     public class ReadCode
     {
@@ -101,6 +101,11 @@ namespace PMKompilatorv2
             this.currentIndex += 1;
         }
 
+        public void ReadPreviousSymbol()
+        {
+            this.currentIndex -= 1;
+        }
+
         public bool IsSymbolAnInstruction()
         {
             if (CurrentSymbolCode == 1) return true;
@@ -137,6 +142,7 @@ namespace PMKompilatorv2
             return false;
         }
 
+
         /*Funkcja zwracająca informacje o tym, jaką częścią składni jest sumbol
         w postaci cyfry reprezentującej konkretną część.
         1 - instrukcja
@@ -150,7 +156,7 @@ namespace PMKompilatorv2
             
             if( index >=0 && index < this.Symbols.Count)
             {
-                if (Regex.IsMatch(this.Symbols[index], Language.Variable)) return 4;
+                if (Regex.IsMatch(this.Symbols[index], Language.Variable.Text)) return 4;
                 if (this.Symbols[index].Equals(";")) return 6;
                 foreach (IInstructions instruction in Language.Instructions.ListOfInstructions)
                     if (instruction.Text.Equals(this.Symbols[index])) return 1;
@@ -158,7 +164,7 @@ namespace PMKompilatorv2
                     if (expresion.Text.Equals(this.Symbols[index])) return 2;
                 foreach (IExpression expresion in Language.Expressions.ListOfTwoArgumentExpressions)
                     if (expresion.Text.Equals(this.Symbols[index])) return 3;
-                if (Regex.IsMatch(this.Symbols[index], Language.Number)) return 5;
+                if (Regex.IsMatch(this.Symbols[index], Language.Number.Text)) return 5;
             }
 
             return 0;

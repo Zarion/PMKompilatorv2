@@ -17,9 +17,9 @@ namespace PMKompilatorv2.ProgrammingLanguage.LanguageElements.InstructionsOfLang
             }
         }
 
-        public int Verify()
+        public void Verify()
         {
-            return -1;
+            
         }
     }
 }

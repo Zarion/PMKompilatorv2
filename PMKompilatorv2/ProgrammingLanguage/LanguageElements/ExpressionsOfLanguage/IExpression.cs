@@ -8,11 +8,13 @@ namespace PMKompilatorv2.LanguageElements.ExpressionsOfLanguage
 {
     public interface IExpression
     {
+        //Text zwraca prezentacje symbolu, np. if, while, -, +, sin
         string Text
         {
             get;
         }
 
-        int Verify();
+        //Funkcja weryfikująca poprawność wyrażenia
+        void Verify();
     }
 }

@@ -13,6 +13,6 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
             get;
         }
 
-        int Verify();
+        void Verify();
     }
 }

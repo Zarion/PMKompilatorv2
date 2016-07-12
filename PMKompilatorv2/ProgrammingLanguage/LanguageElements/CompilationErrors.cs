@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PMKompilatorv2.LanguageAnalyzer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

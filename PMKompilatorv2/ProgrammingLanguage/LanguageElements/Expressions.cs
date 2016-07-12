@@ -1,4 +1,5 @@
-﻿using PMKompilatorv2.LanguageElements.ExpressionsOfLanguage;
+﻿using PMKompilatorv2.LanguageAnalyzer;
+using PMKompilatorv2.LanguageElements.ExpressionsOfLanguage;
 using PMKompilatorv2.LanguageElements.ExpressionsOfLanguage.OneArgumentExpressions;
 using PMKompilatorv2.LanguageElements.ExpressionsOfLanguage.TwoArgumentExpressions;
 using System;
@@ -40,6 +41,30 @@ namespace PMKompilatorv2.LanguageElements
             ListOfTwoArgumentExpressions.Add(Minus);
             ListOfTwoArgumentExpressions.Add(Multiplication);
             ListOfTwoArgumentExpressions.Add(Plus);
+        }
+
+        public void Verify()
+        {
+            Analyzer.ReadCode.ReadNewSymbol();
+            if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == true)
+                throw Analyzer.CompilationExceptions.NoNextSymbolException; //Brak kolejnego symbolu
+            if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == false)
+                throw Analyzer.CompilationExceptions.UnknownSymbolException; //Symbol nie należący do języka
+            if (Analyzer.ReadCode.IsSymbolAnOneArgumentExpresion() == false && Analyzer.ReadCode.IsSymbolAnTwoArgumentExpresion() == false
+                && Analyzer.ReadCode.IsSymbolANumber() == false && Analyzer.ReadCode.IsSymbolAVariable() == false) throw Analyzer.CompilationExceptions.NoExpressionException;
+            if (Analyzer.ReadCode.IsSymbolAVariable() == true)
+            {
+                Language.Variable.VerifyIfVariableIsInitialized();
+                Analyzer.ReadCode.ReadPreviousSymbol();
+                Language.Variable.Verify();
+            }
+            if (Analyzer.ReadCode.IsSymbolANumber() == true)
+            {
+                Analyzer.ReadCode.ReadPreviousSymbol();
+                Language.Number.Verify();
+            }
+            if (Analyzer.ReadCode.IsSymbolAnOneArgumentExpresion() == true) Language.Expressions.OneArgumentExpresion.Verify();
+            if (Analyzer.ReadCode.IsSymbolAnTwoArgumentExpresion() == true) Language.Expressions.TwoArgumentExpresion.Verify();
         }
     }
 }

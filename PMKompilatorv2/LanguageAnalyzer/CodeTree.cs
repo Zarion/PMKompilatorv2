@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PMKompilatorv2
+namespace PMKompilatorv2.LanguageAnalyzer
 {
     public class CodeTree
     {
