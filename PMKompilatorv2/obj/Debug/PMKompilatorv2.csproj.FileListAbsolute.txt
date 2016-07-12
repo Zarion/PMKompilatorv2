@@ -1,0 +1,8 @@
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\bin\Debug\PMKompilatorv2.exe.config
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\obj\Debug\PMKompilatorv2.csprojResolveAssemblyReference.cache
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\bin\Debug\PMKompilatorv2.exe
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\bin\Debug\PMKompilatorv2.pdb
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\obj\Debug\PMKompilatorv2.exe
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\obj\Debug\PMKompilatorv2.pdb
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\bin\Debug\Autofac.dll
+c:\users\drynca\documents\visual studio 2015\Projects\PMKompilatorv2\PMKompilatorv2\bin\Debug\Autofac.xml
