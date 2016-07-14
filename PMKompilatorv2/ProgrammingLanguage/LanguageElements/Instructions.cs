@@ -35,13 +35,16 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
 
         /*Funkcja sprawdza czy kolejny symbol jest rozpoczęciem nowej instruckji
           oraz wywołuje odpowiednią funckje weryfikującą dla instukcji*/
-        public int VerifyInstruction()
+        public void VerifyInstruction()
         {
             Analyzer.ReadCode.ReadNewSymbol();
-            if (Analyzer.ReadCode.EndOfSymbols == true) return 0;
+            if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == true)
+                throw Analyzer.CompilationExceptions.NoNextSymbolException; //Brak kolejnego symbolu
+            if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == false)
+                throw Analyzer.CompilationExceptions.UnknownSymbolException; //Symbol nie należący do języka
             if (Analyzer.ReadCode.CurrentSymbolCode != 1)
             {
-                return 3;
+                throw Analyzer.CompilationExceptions.NoNewInstructionException;
             }
             else
             {
@@ -50,7 +53,6 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
                     if (Analyzer.ReadCode.CurrentSymbol == instruction.Text) instruction.Verify();
                 }
             }
-            return 3;
         }
     }
 }

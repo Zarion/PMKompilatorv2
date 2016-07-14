@@ -19,6 +19,7 @@ namespace PMKompilatorv2.ProgrammingLanguage.LanguageElements
 
         public void Verify()
         {
+            Analyzer.ReadCode.ReadNewSymbol();
             if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == true)
                 throw Analyzer.CompilationExceptions.NoNextSymbolException; //Brak kolejnego symbolu
             if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == false)

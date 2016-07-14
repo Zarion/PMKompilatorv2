@@ -16,5 +16,6 @@ namespace PMKompilatorv2.LanguageAnalyzer
         public IncorrectExpressionException IncorrectExpressionException { get { return new IncorrectExpressionException(); } }
         public NoVariableException NoVariableException { get { return new NoVariableException(); } }
         public NoNumberException NoNumberException { get { return new NoNumberException(); } }
+        public NoNewInstructionException NoNewInstructionException { get { return new NoNewInstructionException(); } }
     }
 }

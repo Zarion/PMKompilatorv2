@@ -25,12 +25,16 @@ namespace PMKompilatorv2.ProgrammingLanguage.LanguageElements
             if (Analyzer.ReadCode.IsSymbolIncorrect() == true && Analyzer.ReadCode.EndOfSymbols == false)
                 throw Analyzer.CompilationExceptions.UnknownSymbolException; //Symbol nie należący do języka
             if (!Analyzer.ReadCode.IsSymbolAVariable()) throw Analyzer.CompilationExceptions.NoVariableException;
+            Analyzer.AddInitializedVariable();
         }
 
         public void VerifyIfVariableIsInitialized()
         {
-            if (Analyzer.ReadCode.IsSymbolAVariable() == true && Analyzer.CheckIfVariableIsInitialized())
+            Analyzer.ReadCode.ReadNewSymbol();
+            if (Analyzer.ReadCode.IsSymbolAVariable() == true && Analyzer.CheckIfVariableIsInitialized() == false)
                 throw Analyzer.CompilationExceptions.NotInitializedVariableException;
+            Analyzer.ReadCode.ReadPreviousSymbol();
         }
+
     }
 }

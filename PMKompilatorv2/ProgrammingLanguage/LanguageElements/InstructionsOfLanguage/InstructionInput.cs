@@ -19,7 +19,7 @@ namespace PMKompilatorv2.LanguageElements.InstructionsOfLanguage
 
         public void Verify()
         {
-            Language.Variable.Verify();    
+            Language.Variable.Verify();   
         }
     }
 }

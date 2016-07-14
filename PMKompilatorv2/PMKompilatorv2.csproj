@@ -51,6 +51,14 @@
     <Compile Include="LanguageAnalyzer\CodeTree.cs" />
     <Compile Include="LanguageAnalyzer\CompilationExceptions.cs" />
     <Compile Include="LanguageAnalyzer\Exceptions\ExceptionBase.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\IncorrectExpressionException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NoExpressionException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NoNewInstructionException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NoNextSymbolException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NoNumberException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NotInitializedVariableException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\NoVariableException.cs" />
+    <Compile Include="LanguageAnalyzer\Exceptions\UnknownSymbolException.cs" />
     <Compile Include="ProgrammingLanguage\Language.cs" />
     <Compile Include="ProgrammingLanguage\LanguageElements\CompilationErrors.cs" />
     <Compile Include="ProgrammingLanguage\LanguageElements\Expressions.cs" />
@@ -76,6 +84,8 @@
     <Compile Include="ProgrammingLanguage\LanguageElements\InstructionsOfLanguage\InstructionPrint.cs" />
     <Compile Include="ProgrammingLanguage\LanguageElements\InstructionsOfLanguage\InstructionWhile.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgrammingLanguage\LanguageElements\Number.cs" />
+    <Compile Include="ProgrammingLanguage\LanguageElements\Variable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LanguageAnalyzer\ReadCode.cs" />
   </ItemGroup>

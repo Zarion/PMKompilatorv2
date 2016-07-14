@@ -45,7 +45,7 @@ namespace PMKompilatorv2
             }
             catch(ExceptionBase e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message + " Linia: " + Analyzer.ReadCode.CurrentLine + ". Symbol: " + Analyzer.ReadCode.NumberOfSymbolInCurrentLine);
             }
 
 

@@ -16,14 +16,10 @@ namespace PMKompilatorv2.LanguageAnalyzer
 
         public static void Start()
         {
-            int response = -1;
             while( !Analyzer.ReadCode.EndOfSymbols )
             {
-                response = Language.Instructions.VerifyInstruction();
-                if (response != -1) break;
+                Language.Instructions.VerifyInstruction();
             }
-
-            Console.WriteLine(Language.Errors.ErrorText(response));
         }
 
         public static void AddInitializedVariable()
