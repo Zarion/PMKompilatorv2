@@ -11,7 +11,6 @@ namespace PMKompilatorv2.Translator
         private Translator()
         {
             //not implemented yet
-            //Jenkins test
         }
     }
 }
