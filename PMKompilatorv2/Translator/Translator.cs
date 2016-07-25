@@ -12,6 +12,6 @@ namespace PMKompilatorv2.Translator
         {
             //not implemented yet
             //Jenkins Test 3
-        } } }
+        }
     }
 }
